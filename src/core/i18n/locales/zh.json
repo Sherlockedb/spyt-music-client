@@ -16,5 +16,27 @@
   },
   "common": {
     "loading": "加载中"
+  },
+  "user": {
+    "profile": "个人资料",
+    "logout": "退出登录"
+  },
+  "nav": {
+    "home": "首页",
+    "search": "搜索",
+    "library": "音乐库",
+    "playlists": "播放列表"
+  },
+  "home": {
+    "welcome": "欢迎",
+    "guest": "访客",
+    "recentlyPlayed": "最近播放",
+    "recommendations": "为您推荐",
+    "noRecentlyPlayed": "暂无最近播放记录",
+    "startListening": "当您开始听音乐后，最近播放的歌曲将显示在这里。",
+    "browseMusic": "浏览音乐",
+    "personalizedRecommendations": "多听音乐以获取基于您口味的个性化推荐。",
+    "exploreMusic": "探索音乐",
+    "startExploring": "开始探索更多音乐"
   }
 }

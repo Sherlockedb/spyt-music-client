@@ -16,5 +16,27 @@
   },
   "common": {
     "loading": "Loading"
+  },
+  "user": {
+    "profile": "Profile",
+    "logout": "Logout"
+  },
+  "nav": {
+    "home": "Home",
+    "search": "Search",
+    "library": "Library",
+    "playlists": "Playlists"
+  },
+  "home": {
+  "welcome": "Welcome",
+  "guest": "Guest",
+  "recentlyPlayed": "Recently Played",
+  "recommendations": "Recommendations",
+  "noRecentlyPlayed": "No recently played tracks",
+  "startListening": "Your recently played tracks will appear here once you start listening to music.",
+  "browseMusic": "Browse Music",
+  "personalizedRecommendations": "Listen to more music to get personalized recommendations based on your taste.",
+  "exploreMusic": "Explore Music",
+  "startExploring": "Start exploring more music"
   }
 }

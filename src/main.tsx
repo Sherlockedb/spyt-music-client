@@ -7,6 +7,7 @@ import { router } from './core/routes';
 import { queryClient } from './core/api/queryClient';
 import { theme } from './core/utils/theme';
 import { AuthProvider } from './features/auth/context/AuthContext';
+import { PlayerProvider } from './features/player/context/PlayerContext';
 import { setupAuthInterceptors } from './core/api/interceptors/authInterceptor';
 import './core/i18n/i18n';
 import './index.css';
@@ -19,7 +20,9 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
       <ThemeProvider theme={theme}>
         <CssBaseline /> {/* 提供基础样式重置 */}
         <AuthProvider>
-          <RouterProvider router={router} />
+          <PlayerProvider>
+            <RouterProvider router={router} />
+          </PlayerProvider>
         </AuthProvider>
       </ThemeProvider>
     </QueryClientProvider>
