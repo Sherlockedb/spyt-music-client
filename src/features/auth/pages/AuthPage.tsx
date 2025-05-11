@@ -4,44 +4,39 @@ import { useNavigate } from 'react-router-dom';
 
 import LoginForm from '../components/LoginForm';
 import RegisterForm from '../components/RegisterForm';
-import authService from '../services/authService';
+import { useAuth } from '../context/AuthContext';
+import LanguageSwitcher from '../../../components/common/LanguageSwitcher';
 
 type AuthMode = 'login' | 'register';
 
 const AuthPage: React.FC = () => {
   const [mode, setMode] = useState<AuthMode>('login');
   const navigate = useNavigate();
+  const { login, register, isAuthenticated } = useAuth();
+
+  // 如果用户已认证，重定向到首页
+  React.useEffect(() => {
+    if (isAuthenticated) {
+      navigate('/');
+    }
+  }, [isAuthenticated, navigate]);
 
   const handleLogin = async (username: string, password: string) => {
-    try {
-      const response = await authService.login(username, password);
-
-      // Save token to localStorage
-      localStorage.setItem('accessToken', response.access_token);
-      localStorage.setItem('refreshToken', response.refresh_token);
-
-      // Redirect to home page
-      navigate('/');
-    } catch (error) {
-      console.error('Login error:', error);
-      throw error;
-    }
+    await login(username, password);
+    navigate('/');
   };
 
   const handleRegister = async (username: string, email: string, password: string) => {
-    try {
-      await authService.register(username, email, password);
-
-      // Switch to login mode after successful registration
-      setMode('login');
-    } catch (error) {
-      console.error('Registration error:', error);
-      throw error;
-    }
+    await register(username, email, password);
+    // 注册成功后切换到登录模式
+    setMode('login');
   };
 
   return (
     <Container maxWidth="sm">
+      <Box sx={{ position: 'absolute', top: 16, right: 16 }}>
+        <LanguageSwitcher />
+      </Box>
       <Box
         sx={{
           minHeight: '100vh',

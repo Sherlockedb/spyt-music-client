@@ -8,6 +8,7 @@ import {
   CircularProgress,
   Alert
 } from '@mui/material';
+import { useTranslation } from 'react-i18next'; // 导入翻译hook
 
 interface RegisterFormProps {
   onRegister: (username: string, email: string, password: string) => Promise<void>;
@@ -21,13 +22,14 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ onRegister, onNavigateToLog
   const [confirmPassword, setConfirmPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const { t } = useTranslation(); // 使用翻译hook
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Validate password match
+    // 验证密码匹配
     if (password !== confirmPassword) {
-      setError('Passwords do not match');
+      setError(t('auth.passwordsNotMatch'));
       return;
     }
 
@@ -37,7 +39,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ onRegister, onNavigateToLog
     try {
       await onRegister(username, email, password);
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Registration failed');
+      setError(err instanceof Error ? err.message : t('auth.registerFailed'));
     } finally {
       setLoading(false);
     }
@@ -46,14 +48,14 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ onRegister, onNavigateToLog
   return (
     <Paper elevation={3} sx={{ p: 4, maxWidth: 400, width: '100%' }}>
       <Typography variant="h5" component="h1" gutterBottom align="center">
-        Create an Account
+        {t('auth.registerTitle')}
       </Typography>
 
       {error && <Alert severity="error" sx={{ mb: 2 }}>{error}</Alert>}
 
       <Box component="form" onSubmit={handleSubmit}>
         <TextField
-          label="Username"
+          label={t('auth.username')}
           fullWidth
           margin="normal"
           value={username}
@@ -63,7 +65,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ onRegister, onNavigateToLog
         />
 
         <TextField
-          label="Email"
+          label={t('auth.email')}
           type="email"
           fullWidth
           margin="normal"
@@ -74,7 +76,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ onRegister, onNavigateToLog
         />
 
         <TextField
-          label="Password"
+          label={t('auth.password')}
           type="password"
           fullWidth
           margin="normal"
@@ -85,7 +87,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ onRegister, onNavigateToLog
         />
 
         <TextField
-          label="Confirm Password"
+          label={t('auth.confirmPassword')}
           type="password"
           fullWidth
           margin="normal"
@@ -94,7 +96,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ onRegister, onNavigateToLog
           required
           disabled={loading}
           error={password !== confirmPassword && confirmPassword !== ''}
-          helperText={password !== confirmPassword && confirmPassword !== '' ? 'Passwords do not match' : ''}
+          helperText={password !== confirmPassword && confirmPassword !== '' ? t('auth.passwordsNotMatch') : ''}
         />
 
         <Button
@@ -105,7 +107,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ onRegister, onNavigateToLog
           sx={{ mt: 3, mb: 2 }}
           disabled={loading}
         >
-          {loading ? <CircularProgress size={24} /> : 'Register'}
+          {loading ? <CircularProgress size={24} /> : t('auth.register')}
         </Button>
 
         <Button
@@ -115,7 +117,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ onRegister, onNavigateToLog
           onClick={onNavigateToLogin}
           disabled={loading}
         >
-          Already have an account? Login
+          {t('auth.hasAccount')}
         </Button>
       </Box>
     </Paper>

@@ -8,6 +8,7 @@ import {
   CircularProgress,
   Alert
 } from '@mui/material';
+import { useTranslation } from 'react-i18next'; // 导入翻译hook
 
 interface LoginFormProps {
   onLogin: (username: string, password: string) => Promise<void>;
@@ -19,6 +20,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onNavigateToRegister }) 
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const { t } = useTranslation(); // 使用翻译hook
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -28,7 +30,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onNavigateToRegister }) 
     try {
       await onLogin(username, password);
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Login failed');
+      setError(err instanceof Error ? err.message : t('auth.loginFailed'));
     } finally {
       setLoading(false);
     }
@@ -37,14 +39,14 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onNavigateToRegister }) 
   return (
     <Paper elevation={3} sx={{ p: 4, maxWidth: 400, width: '100%' }}>
       <Typography variant="h5" component="h1" gutterBottom align="center">
-        Login to Spyt Music
+        {t('auth.loginTitle')}
       </Typography>
 
       {error && <Alert severity="error" sx={{ mb: 2 }}>{error}</Alert>}
 
       <Box component="form" onSubmit={handleSubmit}>
         <TextField
-          label="Username"
+          label={t('auth.username')}
           fullWidth
           margin="normal"
           value={username}
@@ -54,7 +56,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onNavigateToRegister }) 
         />
 
         <TextField
-          label="Password"
+          label={t('auth.password')}
           type="password"
           fullWidth
           margin="normal"
@@ -72,7 +74,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onNavigateToRegister }) 
           sx={{ mt: 3, mb: 2 }}
           disabled={loading}
         >
-          {loading ? <CircularProgress size={24} /> : 'Login'}
+          {loading ? <CircularProgress size={24} /> : t('auth.login')}
         </Button>
 
         <Button
@@ -82,7 +84,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onNavigateToRegister }) 
           onClick={onNavigateToRegister}
           disabled={loading}
         >
-          Don't have an account? Register
+          {t('auth.noAccount')}
         </Button>
       </Box>
     </Paper>

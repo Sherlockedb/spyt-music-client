@@ -1,0 +1,20 @@
+{
+  "auth": {
+    "login": "登录",
+    "register": "注册",
+    "username": "用户名",
+    "email": "电子邮箱",
+    "password": "密码",
+    "confirmPassword": "确认密码",
+    "loginTitle": "登录 Spyt Music",
+    "registerTitle": "创建账户",
+    "noAccount": "没有账户？去注册",
+    "hasAccount": "已有账户？去登录",
+    "loginFailed": "登录失败",
+    "registerFailed": "注册失败",
+    "passwordsNotMatch": "两次输入的密码不一致"
+  },
+  "common": {
+    "loading": "加载中"
+  }
+}
