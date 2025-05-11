@@ -52,10 +52,10 @@ const Sidebar: React.FC<SidebarProps> = ({ width }) => {
       }}
     >
       <Box sx={{ display: 'flex', justifyContent: 'center', py: 2 }}>
-        <SpytLogo width={128} height={128} />
+        <SpytLogo width={120} height={120} />
       </Box>
       <Typography variant="h6" align="center" sx={{ mb: 2 }}>
-        SpytMusic
+        Spyt Music
       </Typography>
       <Divider />
       <Box sx={{ overflow: 'auto' }}>

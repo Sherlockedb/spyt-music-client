@@ -9,6 +9,7 @@ import {
   Alert
 } from '@mui/material';
 import { useTranslation } from 'react-i18next'; // 导入翻译hook
+import SpytLogo from '../../../components/common/SpytLogo'; // 导入Logo组件
 
 interface LoginFormProps {
   onLogin: (username: string, password: string) => Promise<void>;
@@ -38,6 +39,11 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onNavigateToRegister }) 
 
   return (
     <Paper elevation={3} sx={{ p: 4, maxWidth: 400, width: '100%' }}>
+      {/* 添加Logo */}
+      <Box sx={{ display: 'flex', justifyContent: 'center', mb: 3 }}>
+        <SpytLogo width={120} height={120} />
+      </Box>
+
       <Typography variant="h5" component="h1" gutterBottom align="center">
         {t('auth.loginTitle')}
       </Typography>
