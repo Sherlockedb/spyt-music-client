@@ -1,40 +1,58 @@
 import axios from 'axios';
+import config from '../config';
 
-// 获取环境变量中的API基础URL
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000/api/v1';
-
-// 创建axios实例
 export const apiClient = axios.create({
-  baseURL: API_BASE_URL,
+  baseURL: config.api.baseUrl,
+  timeout: config.api.timeout,
   headers: {
     'Content-Type': 'application/json',
   },
 });
 
-// 请求拦截器 - 添加认证Token
-apiClient.interceptors.request.use(
-  (config) => {
-    const token = localStorage.getItem('auth_token');
-    if (token) {
-      config.headers.Authorization = `Bearer ${token}`;
-    }
-    return config;
-  },
+// 添加响应拦截器处理错误
+apiClient.interceptors.response.use(
+  (response) => response,
   (error) => {
+    // 处理API错误
+    console.error('API Error:', error);
     return Promise.reject(error);
   }
 );
 
-// 响应拦截器 - 处理常见错误
-apiClient.interceptors.response.use(
-  (response) => response,
-  (error) => {
-    // 处理401未授权错误
-    if (error.response && error.response.status === 401) {
-      // 清除本地存储的认证信息
-      localStorage.removeItem('auth_token');
-      // 可以在这里添加重定向到登录页面的逻辑
+// 如果启用了缓存，添加请求缓存功能
+if (config.api.enableCache) {
+  const cache = new Map();
+
+  apiClient.interceptors.request.use(
+    (config) => {
+      // 只对GET请求启用缓存
+      if (config.method?.toLowerCase() === 'get') {
+        const key = `${config.url}${JSON.stringify(config.params || {})}`;
+        const cachedResponse = cache.get(key);
+
+        if (cachedResponse) {
+          return {
+            ...config,
+            adapter: () => Promise.resolve(cachedResponse),
+            cached: true,
+          };
+        }
+      }
+      return config;
+    },
+    (error) => Promise.reject(error)
+  );
+
+  apiClient.interceptors.response.use(
+    (response) => {
+      // 存储GET请求响应到缓存
+      if (response.config.method?.toLowerCase() === 'get' && !response.config.cached) {
+        const key = `${response.config.url}${JSON.stringify(response.config.params || {})}`;
+        cache.set(key, response);
+      }
+      return response;
     }
-    return Promise.reject(error);
-  }
-);
+  );
+}
+
+export default apiClient;
