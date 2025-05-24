@@ -51,8 +51,8 @@ const DownloadManagerPage: React.FC = () => {
     try {
       const status = activeTab !== 'all' ? activeTab : undefined;
       const response = await getAllTasks(status, (page-1)*itemsPerPage, limit);
-      setTasks(response);
-      setTotalTasks(response.length);
+      setTasks(response.tasks);
+      setTotalTasks(response.total);
     } catch (error) {
       console.error('Failed to fetch tasks:', error);
     } finally {
