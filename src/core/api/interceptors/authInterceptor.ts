@@ -52,7 +52,8 @@ export const setupAuthInterceptors = () => {
       if (
         error.response?.status === 401 &&
         !originalRequest._retry &&
-        localStorage.getItem('refreshToken')
+        localStorage.getItem('refreshToken') &&
+        !originalRequest.url?.includes('auth/refresh') // 避免refresh请求本身也进入循环
       ) {
         if (isRefreshing) {
           // 如果正在刷新token，将请求加入队列

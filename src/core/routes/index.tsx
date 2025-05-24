@@ -3,6 +3,7 @@ import App from '../../App';
 import AuthPage from '../../features/auth/pages/AuthPage';
 import MainLayout from '../../components/layout/MainLayout';
 import HomePage from '../../pages/HomePage';
+import SearchPage from '../../pages/SearchPage';
 import { Navigate } from 'react-router-dom';
 
 const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
@@ -35,7 +36,7 @@ const routes: RouteObject[] = [
           },
           {
             path: 'search',
-            element: <div>Search Page</div>
+            element: <SearchPage />
           },
           {
             path: 'library',

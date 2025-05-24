@@ -38,5 +38,26 @@
   "personalizedRecommendations": "Listen to more music to get personalized recommendations based on your taste.",
   "exploreMusic": "Explore Music",
   "startExploring": "Start exploring more music"
+  },
+  "search": {
+    "placeholder": "Search for songs, albums, artists...",
+    "results": "Search Results",
+    "resultsFor": "search results",
+    "noResults": "No results found",
+    "searchHistory": "Search History",
+    "clearHistory": "Clear History",
+    "recentSearches": "Recent Searches",
+    "all": "All",
+    "tracks": "Tracks",
+    "albums": "Albums",
+    "artists": "Artists",
+    "viewAll": "View all",
+    "noResultsForQuery": "No results found for \"{query}\"",
+    "noTracksFound": "No tracks found for \"{query}\"",
+    "noAlbumsFound": "No albums found for \"{query}\"",
+    "noArtistsFound": "No artists found for \"{query}\"",
+    "searchYourMusic": "Search for music you love",
+    "enterKeywords": "Enter keywords to search for songs, albums or artists",
+    "errorMessage": "An error occurred while searching. Please try again later."
   }
 }

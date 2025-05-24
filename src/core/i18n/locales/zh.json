@@ -38,5 +38,26 @@
     "personalizedRecommendations": "多听音乐以获取基于您口味的个性化推荐。",
     "exploreMusic": "探索音乐",
     "startExploring": "开始探索更多音乐"
+  },
+  "search": {
+    "placeholder": "搜索歌曲、专辑、艺术家...",
+    "results": "搜索结果",
+    "resultsFor": "的搜索结果",
+    "noResults": "未找到相关结果",
+    "searchHistory": "搜索历史",
+    "clearHistory": "清除历史记录",
+    "recentSearches": "最近搜索",
+    "all": "全部",
+    "tracks": "歌曲",
+    "albums": "专辑",
+    "artists": "艺术家",
+    "viewAll": "查看全部",
+    "noResultsForQuery": "没有找到与 \"{query}\" 相关的内容",
+    "noTracksFound": "没有找到与 \"{query}\" 相关的歌曲",
+    "noAlbumsFound": "没有找到与 \"{query}\" 相关的专辑",
+    "noArtistsFound": "没有找到与 \"{query}\" 相关的艺术家",
+    "searchYourMusic": "搜索你喜欢的音乐",
+    "enterKeywords": "输入关键词搜索歌曲、专辑或艺术家",
+    "errorMessage": "搜索时出错，请稍后再试"
   }
 }

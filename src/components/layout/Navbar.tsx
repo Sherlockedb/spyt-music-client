@@ -21,6 +21,8 @@ import LanguageSwitcher from '../common/LanguageSwitcher';
 import { useTranslation } from 'react-i18next';
 import { useAuth } from '../../features/auth/context/AuthContext';
 import { useNavigate } from 'react-router-dom';
+import SearchBar from '../search/SearchBar';
+
 
 const Navbar: React.FC = () => {
   const { t } = useTranslation();
@@ -90,6 +92,24 @@ const Navbar: React.FC = () => {
           >
             <SearchIcon />
           </IconButton>
+        </Box>
+
+        {/* 添加中间搜索区域 - 仅在桌面端显示 */}
+        <Box 
+          sx={{ 
+            display: { xs: 'none', md: 'flex' }, 
+            flexGrow: 1, 
+            justifyContent: 'center',
+            maxWidth: 600,
+            mx: 2
+          }}
+        >
+          <SearchBar 
+            onSearch={(query) => navigate(`/search?q=${encodeURIComponent(query)}`)}
+            placeholder={t('search.placeholder')}
+            size="small"
+            fullWidth
+          />
         </Box>
 
         {/* 右侧工具栏 */}
