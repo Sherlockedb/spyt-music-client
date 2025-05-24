@@ -15,7 +15,34 @@
     "passwordsNotMatch": "Passwords do not match"
   },
   "common": {
-    "loading": "Loading"
+    "loading": "Loading",
+    "cancel": "Cancel",
+    "close": "Close",
+    "download": "Download",
+    "refresh": "Refresh"
+  },
+  "player": {
+    "play": "Play",
+    "pause": "Pause",
+    "playAlbum": "Play Album"
+  },
+  "music": {
+    "album": "Album",
+    "artist": "Artist",
+    "trackList": "Track List",
+    "tracks": "Tracks",
+    "genres": "Genres",
+    "releaseDate": "Release Date",
+    "followers": "Followers",
+    "topTracks": "Top Tracks",
+    "albums": "Albums",
+    "singles": "Singles"
+  },
+  "errors": {
+    "albumNotFound": "Album not found",
+    "failedToLoadAlbum": "Failed to load album",
+    "artistNotFound": "Artist not found",
+    "failedToLoadArtist": "Failed to load artist"
   },
   "user": {
     "profile": "Profile",
@@ -25,7 +52,9 @@
     "home": "Home",
     "search": "Search",
     "library": "Library",
-    "playlists": "Playlists"
+    "playlists": "Playlists",
+    "downloads": "Downloads",
+    "settings": "Settings"
   },
   "home": {
   "welcome": "Welcome",
@@ -59,5 +88,117 @@
     "searchYourMusic": "Search for music you love",
     "enterKeywords": "Enter keywords to search for songs, albums or artists",
     "errorMessage": "An error occurred while searching. Please try again later."
+  },
+  "downloads": {
+    "manager": "Download Manager",
+    "newTask": "New Download Task",
+    "createTask": "Create Download Task",
+    "taskCreatedSuccessfully": "Download task created successfully!",
+    "taskDetails": "Task Details",
+    "noTasks": "No download tasks found",
+    "noTaskSelected": "No task selected",
+
+    "taskName": "Task Name",
+    "type": "Type",
+    "status": "Status",
+    "progress": "Progress",
+    "createdAt": "Created",
+    "startedAt": "Started",
+    "completedAt": "Completed",
+    "updatedAt": "Last Updated",
+    "action": "Actions",
+
+    "taskId": "Task ID",
+    "entityId": "Entity ID",
+    "workerId": "Worker ID",
+    "retries": "Retries",
+    "priority": "Priority",
+    "priorityHelp": "Lower value means higher priority (1 is highest)",
+    "errorDetails": "Error Details",
+
+    "tabs": {
+      "all": "All Tasks",
+      "pending": "Pending",
+      "inProgress": "In Progress",
+      "completed": "Completed",
+      "failed": "Failed"
+    },
+
+    "types": {
+      "track": "Track",
+      "album": "Album",
+      "artist": "Artist"
+    },
+
+    "statuses": {
+      "pending": "Pending",
+      "in_progress": "In Progress",
+      "success": "Completed",
+      "failed": "Failed"
+    },
+
+    "actions": {
+      "play": "Play",
+      "cancel": "Cancel",
+      "retry": "Retry",
+      "view": "View Details"
+    },
+
+    "stats": {
+      "total": "Total Tasks",
+      "pending": "Pending",
+      "inProgress": "In Progress",
+      "completed": "Completed",
+      "failed": "Failed"
+    },
+
+    "taskType": "Task Type",
+    "taskTypeHelp": {
+      "track": "Download a single track",
+      "album": "Download an entire album",
+      "artist": "Download all albums from an artist"
+    },
+
+    "entityIdLabel": {
+      "track": "Track ID",
+      "album": "Album ID",
+      "artist": "Artist ID"
+    },
+
+    "entityIdHelp": {
+      "track": "Spotify track ID (e.g., 0V3wPSX9ygBnCm8psDIegu)",
+      "album": "Spotify album ID (e.g., 6olE6TJLqED3rqDCT0FyPh)",
+      "artist": "Spotify artist ID (e.g., 6eUKZXaKkcviH0Ku9w2n3V)"
+    },
+
+    "albumOptions": "Album Download Options",
+    "filterArtistId": "Filter by Artist ID",
+    "filterArtistIdHelp": "Only download tracks from this artist (optional)",
+
+    "artistOptions": "Artist Download Options",
+    "includeSingles": "Include Singles",
+    "includeAppearsOn": "Include 'Appears On' Albums",
+    "minTracks": "Minimum Tracks per Album",
+    "minTracksHelp": "Only download albums with at least this many tracks (0 = no limit)",
+
+    "basicInfo": "Basic Information",
+    "timing": "Timing Information",
+
+    "createTaskButton": "Create Task",
+
+    "errors": {
+      "emptyEntityId": "Please enter an entity ID",
+      "invalidTaskType": "Invalid task type",
+      "failedToCreateTask": "Failed to create download task",
+      "failedToLoadDetails": "Failed to load task details",
+      "failedToCancel": "Failed to cancel task",
+      "failedToRetry": "Failed to retry task"
+    },
+
+    "viewHistory": "View History",
+    "history": "Download History",
+    "noCompletedTasks": "No completed downloads yet",
+    "duration": "Duration",
+    "downloaded": "Downloaded"
   }
 }

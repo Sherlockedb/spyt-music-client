@@ -4,7 +4,10 @@ import AuthPage from '../../features/auth/pages/AuthPage';
 import MainLayout from '../../components/layout/MainLayout';
 import HomePage from '../../pages/HomePage';
 import SearchPage from '../../pages/SearchPage';
+import DownloadManagerPage from '../../pages/DownloadManagerPage';
+import DownloadHistoryPage from '../../pages/DownloadHistoryPage';
 import { Navigate } from 'react-router-dom';
+import { NotificationProvider } from '@/contexts/NotificationContext';
 
 const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
   const isAuthenticated = localStorage.getItem('accessToken') !== null;
@@ -20,7 +23,11 @@ const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
 const routes: RouteObject[] = [
   {
     path: '/',
-    element: <App />,
+    element: (
+      <NotificationProvider>
+        <App />
+      </NotificationProvider>
+    ),
     children: [
       {
         path: '/',
@@ -49,6 +56,15 @@ const routes: RouteObject[] = [
           {
             path: 'profile',
             element: <div>Profile Page</div>
+          },
+          {
+            path: 'downloads',
+            element: <DownloadManagerPage />
+          },
+          // 添加下载历史路由
+          {
+            path: 'downloads/history',
+            element: <DownloadHistoryPage />
           }
         ]
       },

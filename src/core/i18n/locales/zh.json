@@ -15,7 +15,34 @@
     "passwordsNotMatch": "两次输入的密码不一致"
   },
   "common": {
-    "loading": "加载中"
+    "loading": "加载中",
+    "cancel": "取消",
+    "close": "关闭",
+    "download": "下载",
+    "refresh": "刷新"
+  },
+  "player": {
+    "play": "播放",
+    "pause": "暂停",
+    "playAlbum": "播放专辑"
+  },
+  "music": {
+    "album": "专辑",
+    "artist": "艺术家",
+    "trackList": "曲目列表",
+    "tracks": "曲目",
+    "genres": "流派",
+    "releaseDate": "发行日期",
+    "followers": "粉丝数",
+    "topTracks": "热门歌曲",
+    "albums": "专辑",
+    "singles": "单曲"
+  },
+  "errors": {
+    "albumNotFound": "未找到专辑",
+    "failedToLoadAlbum": "加载专辑失败",
+    "artistNotFound": "未找到艺术家",
+    "failedToLoadArtist": "加载艺术家失败"
   },
   "user": {
     "profile": "个人资料",
@@ -25,7 +52,9 @@
     "home": "首页",
     "search": "搜索",
     "library": "音乐库",
-    "playlists": "播放列表"
+    "playlists": "播放列表",
+    "downloads": "下载管理",
+    "settings": "设置"
   },
   "home": {
     "welcome": "欢迎",
@@ -59,5 +88,117 @@
     "searchYourMusic": "搜索你喜欢的音乐",
     "enterKeywords": "输入关键词搜索歌曲、专辑或艺术家",
     "errorMessage": "搜索时出错，请稍后再试"
+  },
+  "downloads": {
+    "manager": "下载管理中心",
+    "newTask": "新建下载任务",
+    "createTask": "创建下载任务",
+    "taskCreatedSuccessfully": "下载任务创建成功！",
+    "taskDetails": "任务详情",
+    "noTasks": "暂无下载任务",
+    "noTaskSelected": "未选择任务",
+
+    "taskName": "任务名称",
+    "type": "类型",
+    "status": "状态",
+    "progress": "进度",
+    "createdAt": "创建时间",
+    "startedAt": "开始时间",
+    "completedAt": "完成时间",
+    "updatedAt": "更新时间",
+    "action": "操作",
+
+    "taskId": "任务ID",
+    "entityId": "实体ID",
+    "workerId": "工作进程ID",
+    "retries": "重试次数",
+    "priority": "优先级",
+    "priorityHelp": "数值越小优先级越高（1为最高）",
+    "errorDetails": "错误详情",
+
+    "tabs": {
+      "all": "全部任务",
+      "pending": "等待中",
+      "inProgress": "下载中",
+      "completed": "已完成",
+      "failed": "失败"
+    },
+
+    "types": {
+      "track": "单曲",
+      "album": "专辑",
+      "artist": "艺术家"
+    },
+
+    "statuses": {
+      "pending": "等待中",
+      "in_progress": "下载中",
+      "success": "已完成",
+      "failed": "失败"
+    },
+
+    "actions": {
+      "play": "播放",
+      "cancel": "取消",
+      "retry": "重试",
+      "view": "查看详情"
+    },
+
+    "stats": {
+      "total": "总任务数",
+      "pending": "等待中",
+      "inProgress": "下载中",
+      "completed": "已完成",
+      "failed": "失败"
+    },
+
+    "taskType": "任务类型",
+    "taskTypeHelp": {
+      "track": "下载单首歌曲",
+      "album": "下载整张专辑",
+      "artist": "下载艺术家的所有专辑"
+    },
+
+    "entityIdLabel": {
+      "track": "歌曲ID",
+      "album": "专辑ID",
+      "artist": "艺术家ID"
+    },
+
+    "entityIdHelp": {
+      "track": "Spotify歌曲ID（例如：0V3wPSX9ygBnCm8psDIegu）",
+      "album": "Spotify专辑ID（例如：6olE6TJLqED3rqDCT0FyPh）",
+      "artist": "Spotify艺术家ID（例如：6eUKZXaKkcviH0Ku9w2n3V）"
+    },
+
+    "albumOptions": "专辑下载选项",
+    "filterArtistId": "按艺术家ID过滤",
+    "filterArtistIdHelp": "只下载该艺术家的曲目（可选）",
+
+    "artistOptions": "艺术家下载选项",
+    "includeSingles": "包含单曲",
+    "includeAppearsOn": "包含合作专辑",
+    "minTracks": "每张专辑最少歌曲数",
+    "minTracksHelp": "仅下载至少包含此数量歌曲的专辑（0 = 无限制）",
+
+    "basicInfo": "基本信息",
+    "timing": "时间信息",
+
+    "createTaskButton": "创建任务",
+
+    "errors": {
+      "emptyEntityId": "请输入实体ID",
+      "invalidTaskType": "无效的任务类型",
+      "failedToCreateTask": "创建下载任务失败",
+      "failedToLoadDetails": "加载任务详情失败",
+      "failedToCancel": "取消任务失败",
+      "failedToRetry": "重试任务失败"
+    },
+
+    "viewHistory": "查看历史",
+    "history": "下载历史",
+    "noCompletedTasks": "暂无已完成的下载",
+    "duration": "耗时",
+    "downloaded": "已下载"
   }
 }

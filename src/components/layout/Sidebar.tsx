@@ -19,6 +19,7 @@ import {
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import SpytLogo from '../common/SpytLogo';
+import CloudDownloadIcon from '@mui/icons-material/CloudDownload';
 
 interface SidebarProps {
   width: number; // 新增宽度属性
@@ -34,7 +35,8 @@ const Sidebar: React.FC<SidebarProps> = ({ width }) => {
     { text: t('nav.home'), icon: <HomeIcon />, path: '/' },
     { text: t('nav.search'), icon: <SearchIcon />, path: '/search' },
     { text: t('nav.library'), icon: <LibraryIcon />, path: '/library' },
-    { text: t('nav.playlists'), icon: <PlaylistIcon />, path: '/playlists' }
+    { text: t('nav.playlists'), icon: <PlaylistIcon />, path: '/playlists' },
+    { text: t('nav.downloads'), icon: <CloudDownloadIcon />, path: '/downloads', },
   ];
 
   return (
