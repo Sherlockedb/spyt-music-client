@@ -24,6 +24,11 @@ export interface DownloadTask {
   options?: Record<string, any>;
 }
 
+export interface PaginatedDownloadTask {
+    total: number;
+    tasks: Array<DownloadTask>;
+}
+
 export interface CreateDownloadRequest {
   entity_id: string;
   priority?: number;

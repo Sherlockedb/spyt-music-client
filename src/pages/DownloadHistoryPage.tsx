@@ -31,9 +31,9 @@ const DownloadHistoryPage: React.FC = () => {
   const fetchCompletedTasks = async () => {
     setLoading(true);
     try {
-      const tasks = await getAllTasks('success', page, 50);
-      setTasks(tasks);
-      setTotalTasks(tasks.length);
+      const response = await getAllTasks('success', page, 50);
+      setTasks(response.tasks);
+      setTotalTasks(response.total);
     } catch (error) {
       console.error('Failed to fetch completed tasks:', error);
     } finally {

@@ -1,5 +1,5 @@
 import apiClient from '../core/api/client';
-import { DownloadTask, DownloadTaskStatus, TaskType } from '../types/download';
+import { PaginatedDownloadTask, DownloadTask, DownloadTaskStatus, TaskType } from '../types/download';
 
 /**
  * 创建下载任务
@@ -74,7 +74,7 @@ export const getAllTasks = async (
   status?: DownloadTaskStatus,
   skip: number = 0,
   limit: number = 50
-): Promise<DownloadTask[]> => {
+): Promise<PaginatedDownloadTask> => {
   const params = { status, skip, limit };
   const response = await apiClient.get('/downloads/', { params });
   return response.data;
